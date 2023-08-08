@@ -1,8 +1,10 @@
 {
-  "name": "2",
+  "name": "4",
   "runtime": "node/v16",
   "timeout": 60,
   "region": "US",
-  "envs": [],
+  "envs": [
+    "ABC"
+  ],
   "typescript": false
 }
