@@ -1,0 +1,102 @@
+#---------------------------------------------------#
+## 配置文件需要放置在 $HOME/.config/clash/*.yaml
+
+## 这份文件是clashX的基础配置文件，请尽量新建配置文件进行修改。
+## ！！！只有这份文件的端口设置会随ClashX启动生效
+
+## 如果您不知道如何操作，请参阅 官方Github文档 https://github.com/Dreamacro/clash/blob/dev/README.md
+#---------------------------------------------------#
+
+# (HTTP and SOCKS5 in one port)
+mixed-port: 7890
+# RESTful API for clash
+external-controller: 127.0.0.1:9090
+allow-lan: false
+mode: rule
+log-level: warning
+
+proxies:
+
+# vmess
+# cipher support auto/aes-128-gcm/chacha20-poly1305/none
+- name: "vmess"
+  type: vmess
+
+  # l
+  server: 13.208.112.105
+  port: 8889
+  uuid: 389c3e29-19b1-e2d7-402f-af8f682b1093
+  alterId: 0
+  cipher: auto
+
+  # udp: true
+  # tls: true
+  # skip-cert-verify: true
+  # servername: example.com # priority over wss host
+  # network: ws
+  # ws-opts:
+  #   path: /path
+  #   headers:
+  #     Host: v2ray.com
+  #   max-early-data: 2048
+  #   early-data-header-name: Sec-WebSocket-Protocol
+
+proxy-groups:
+
+rules:
+  - DOMAIN-SUFFIX,google.com,vmess
+  - DOMAIN-KEYWORD,google,vmess
+  - DOMAIN,google.com,vmess
+  - DOMAIN-SUFFIX,twitter.com,vmess
+  - DOMAIN-KEYWORD,twitter,vmess
+  - DOMAIN,twitter.com,vmess
+  - DOMAIN-SUFFIX,github.com,vmess
+  - DOMAIN-KEYWORD,github,vmess
+  - DOMAIN,github.com,vmess
+  - DOMAIN-SUFFIX,githubusercontent.com,vmess
+  - DOMAIN-KEYWORD,githubusercontent,vmess
+  - DOMAIN,githubusercontent.com,vmess
+  - DOMAIN-SUFFIX,microsoft.com,vmess
+  - DOMAIN-KEYWORD,microsoft,vmess
+  - DOMAIN,microsoft.com,vmess
+  - DOMAIN-SUFFIX,gmail.com,vmess
+  - DOMAIN-KEYWORD,gmail,vmess
+  - DOMAIN,gmail.com,vmess
+  - DOMAIN-SUFFIX,twimg.com,vmess
+  - DOMAIN-KEYWORD,twimg,vmess
+  - DOMAIN,twimg.com,vmess
+  - DOMAIN-SUFFIX,t.co,vmess
+  - DOMAIN-KEYWORD,t,vmess
+  - DOMAIN,t.co,vmess
+  - DOMAIN,t.newyorker.com,vmess
+  - DOMAIN,lvv2.com,vmess
+  - DOMAIN-SUFFIX,wsj.com,vmess
+  - DOMAIN,wsj.com,vmess
+  - DOMAIN-SUFFIX,wikipedia.org,vmess
+  - DOMAIN-KEYWORD,wikipedia,vmess
+  - DOMAIN,wikipedia.org,vmess
+  - DOMAIN-SUFFIX,openai.com,vmess
+  - DOMAIN-KEYWORD,openai,vmess
+  - DOMAIN,openai.com,vmess
+  - DOMAIN-SUFFIX,bbc.in,vmess
+  - DOMAIN-KEYWORD,bbc.in,vmess
+  - DOMAIN,bbc.in,vmess
+  - DOMAIN-SUFFIX,bbc.com,vmess
+  - DOMAIN-KEYWORD,bbc.com,vmess
+  - DOMAIN,bbc.com,vmess
+  - DOMAIN-SUFFIX,voachinese.com,vmess
+  - DOMAIN-KEYWORD,voachinese,vmess
+  - DOMAIN,voachinese.com,vmess
+  - DOMAIN-SUFFIX,medium.com,vmess
+  - DOMAIN-KEYWORD,medium.com,vmess
+  - DOMAIN,medium.com,vmess
+  - DOMAIN-SUFFIX,bloomberg.com,vmess
+  - DOMAIN-KEYWORD,bloomberg.com,vmess
+  - DOMAIN,bloomberg.com,vmess
+  - DOMAIN-SUFFIX,youtube.com,vmess
+  - DOMAIN-KEYWORD,youtube.com,vmess
+  - DOMAIN,youtube.com,vmess
+  - DOMAIN-SUFFIX,ad.com,REJECT
+  - DOMAIN,refined.com,vmess
+  - GEOIP,CN,DIRECT
+  - MATCH,DIRECT
