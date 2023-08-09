@@ -1,3 +1,10 @@
 {
-  "abc": "efg"
+  "name": "4",
+  "runtime": "node/v16",
+  "timeout": 60,
+  "region": "US",
+  "envs": [
+    "ABC"
+  ],
+  "typescript": false
 }
